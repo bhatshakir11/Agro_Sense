@@ -6,26 +6,28 @@ const theme = createTheme({
   palette,
   typography,
   shape: {
-    borderRadius: 0,
+    borderRadius: 16,
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: "#F2F2F5",
+          backgroundColor: "#F5F7F2",
         },
       },
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 0,
+          borderRadius: 12,
           boxShadow: "none",
+          paddingLeft: 16,
+          paddingRight: 16,
         },
         contained: {
-          boxShadow: "none",
+          boxShadow: "0 8px 20px rgba(106, 174, 44, 0.14)",
           "&:hover": {
-            boxShadow: "none",
+            boxShadow: "0 10px 22px rgba(106, 174, 44, 0.18)",
           },
         },
       },
@@ -33,18 +35,18 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 0,
-          boxShadow: "none",
-          border: "1px solid #E3E3E8",
+          borderRadius: 18,
+          boxShadow: "0 8px 24px rgba(24,34,27,0.04)",
+          border: "1px solid #E3EBDD",
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 0,
-          boxShadow: "none",
-          border: "1px solid #E3E3E8",
+          borderRadius: 18,
+          boxShadow: "0 8px 24px rgba(24,34,27,0.04)",
+          border: "1px solid #E3EBDD",
         },
       },
     },
@@ -59,8 +61,8 @@ const theme = createTheme({
       styleOverrides: {
         indicator: {
           height: 3,
-          borderRadius: 0,
-          backgroundColor: "#65AC1E",
+          borderRadius: 999,
+          backgroundColor: "#6AAE2C",
         },
       },
     },

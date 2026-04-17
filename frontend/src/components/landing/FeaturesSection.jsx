@@ -1,42 +1,46 @@
-import { Box, Typography, Grid, Paper, Button, Chip, Stack } from "@mui/material";
-import { ArrowOutward } from "@mui/icons-material";
-import { motion } from "framer-motion";
+import { Box, Typography, Paper, Button, Stack } from "@mui/material";
+import {
+  ArrowOutward,
+  Agriculture,
+  CloudQueue,
+  QueryStats,
+  LocalHospital,
+} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-
-const MotionPaper = motion(Paper);
+import { motion } from "framer-motion";
 
 const modules = [
   {
     title: "Crop Recommendation",
-    desc: "AI matches your soil profile and nutrients with high-performing crops for the season.",
+    desc: "Match soil values, weather, and season with crops that fit your field.",
     route: "/crop-recommendation",
-    image:
-      "https://images.unsplash.com/photo-1592982537447-6f2a6a0b5e5f?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Soil", "Yield", "Planning"],
+    icon: Agriculture,
+    tone: "linear-gradient(135deg, rgba(106, 174, 44, 0.16), rgba(255,255,255,0.94))",
+    accent: "#6AAE2C",
   },
   {
     title: "Weather Analysis",
-    desc: "Track rainfall probability, humidity trends, and irrigation-friendly windows.",
+    desc: "Track temperature, humidity, storm exposure, and rain-ready windows.",
     route: "/weather-analysis",
-    image:
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Forecast", "Risk", "Irrigation"],
+    icon: CloudQueue,
+    tone: "linear-gradient(135deg, rgba(77, 163, 255, 0.16), rgba(255,255,255,0.94))",
+    accent: "#4DA3FF",
   },
   {
     title: "Market Price Prediction",
-    desc: "Compare mandi trends and demand momentum to optimize selling strategy.",
+    desc: "Read pricing momentum before you decide where and when to sell.",
     route: "/market-price-prediction",
-    image:
-      "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Prices", "Demand", "Profit"],
+    icon: QueryStats,
+    tone: "linear-gradient(135deg, rgba(243, 149, 0, 0.16), rgba(255,255,255,0.94))",
+    accent: "#F39500",
   },
   {
     title: "Disease Detection",
-    desc: "Upload leaf images for fast disease detection and treatment suggestions.",
+    desc: "Upload crop images for a quicker disease check and treatment direction.",
     route: "/disease-detection",
-    image:
-      "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Vision AI", "Health", "Medicine"],
+    icon: LocalHospital,
+    tone: "linear-gradient(135deg, rgba(30, 90, 53, 0.16), rgba(255,255,255,0.94))",
+    accent: "#1E5A35",
   },
 ];
 
@@ -44,68 +48,115 @@ const FeaturesSection = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ mb: { xs: 4.5, md: 6 }, px: { xs: 1, md: 0 } }}>
-      <Typography variant="h4" sx={{ mb: 1 }}>
-        Smart Modules Built for Farmers
-      </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2.6, maxWidth: 760 }}>
-        Every module is designed as a practical action tool, not just a dashboard card.
-      </Typography>
-      <Grid container spacing={2}>
-        {modules.map((module, idx) => (
-          <Grid item xs={12} md={6} key={module.title}>
-            <MotionPaper
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.3, delay: idx * 0.05 }}
-              whileHover={{ y: -5 }}
-              sx={{
-                overflow: "hidden",
-                bgcolor: "#FFFFFF",
-                border: "1px solid #DDE4D8",
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Box sx={{ position: "relative", height: 188 }}>
-                <img
-                  src={module.image}
-                  alt={module.title}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                />
+    <Box sx={{ maxWidth: 1320, mx: "auto" }}>
+      <Box sx={{ mb: 2.5, textAlign: { xs: "left", md: "center" } }}>
+        <Typography variant="h4" sx={{ mb: 0.8 }}>
+          Interactive Modules
+        </Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 720, mx: "auto" }}>
+          Each module is still simple to use, but the UI now feels more alive and easier to scan.
+        </Typography>
+      </Box>
+
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" },
+          gap: { xs: 2, md: 2.4 },
+        }}
+      >
+        {modules.map((module, index) => {
+          const Icon = module.icon;
+
+          return (
+            <Paper
+            key={module.title}
+            component={motion.div}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.45, delay: index * 0.08 }}
+            elevation={0}
+            sx={{
+              p: { xs: 2.2, md: 2.6 },
+              minHeight: 240,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              border: "1px solid rgba(211, 224, 202, 0.95)",
+              background: module.tone,
+              position: "relative",
+              overflow: "hidden",
+              transition: "transform 180ms ease, box-shadow 180ms ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 18px 40px rgba(24,34,27,0.08)",
+              },
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                inset: "auto -30px -70px auto",
+                width: 180,
+                height: 180,
+                borderRadius: "50%",
+                background: `${module.accent}18`,
+              },
+            }}
+          >
+              <Box sx={{ position: "relative", zIndex: 1 }}>
                 <Box
                   sx={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(180deg, rgba(8,16,12,0.05) 0%, rgba(8,16,12,0.6) 100%)",
+                    width: 56,
+                    height: 56,
+                    borderRadius: "18px",
+                    display: "grid",
+                    placeItems: "center",
+                    mb: 1.6,
+                    bgcolor: "#FFFFFF",
+                    color: module.accent,
+                    boxShadow: "0 10px 24px rgba(24,34,27,0.08)",
                   }}
-                />
-                <Typography
-                  variant="h6"
-                  sx={{ position: "absolute", left: 14, bottom: 12, color: "#FFFFFF", textShadow: "0 2px 6px rgba(0,0,0,0.35)" }}
                 >
+                  <Icon />
+                </Box>
+
+                <Typography variant="h6" sx={{ mb: 0.8 }}>
                   {module.title}
                 </Typography>
-              </Box>
-              <Box sx={{ p: 2 }}>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 1.4 }}>
+                <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 420 }}>
                   {module.desc}
                 </Typography>
-                <Stack direction="row" spacing={0.8} sx={{ mb: 1.4, flexWrap: "wrap" }}>
-                  {module.tags.map((tag) => (
-                    <Chip key={tag} label={tag} size="small" variant="outlined" />
-                  ))}
-                </Stack>
-                <Button endIcon={<ArrowOutward />} onClick={() => navigate(module.route)} sx={{ px: 0, color: "secondary.main" }}>
-                  Open module
-                </Button>
               </Box>
-            </MotionPaper>
-          </Grid>
-        ))}
-      </Grid>
+
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={1.1}
+                alignItems={{ xs: "stretch", sm: "center" }}
+                justifyContent="space-between"
+                sx={{ mt: 2.2, position: "relative", zIndex: 1 }}
+              >
+                <Typography variant="caption" sx={{ color: "text.secondary", fontWeight: 700 }}>
+                  Tap into live farm signals
+                </Typography>
+                <Button
+                  variant="contained"
+                  endIcon={<ArrowOutward />}
+                  onClick={() => navigate(module.route)}
+                  sx={{
+                    alignSelf: { xs: "flex-start", sm: "center" },
+                    borderRadius: "999px",
+                    px: 2.1,
+                    bgcolor: module.accent,
+                    "&:hover": { bgcolor: module.accent },
+                  }}
+                >
+                  Open Module
+                </Button>
+              </Stack>
+            </Paper>
+          );
+        })}
+      </Box>
     </Box>
   );
 };

@@ -1,29 +1,29 @@
 const palette = {
   primary: {
-    main: "#65AC1E",
-    dark: "#4F8C12",
-    light: "#8FC65A",
+    main: "#6AAE2C",
+    dark: "#4E8819",
+    light: "#91C95B",
     contrastText: "#FFFFFF",
   },
   secondary: {
-    main: "#00793A",
-    dark: "#00632F",
-    light: "#2A9A5F",
+    main: "#1E5A35",
+    dark: "#164528",
+    light: "#3A7A4F",
     contrastText: "#FFFFFF",
   },
   background: {
-    default: "#F2F2F5",
+    default: "#F5F7F2",
     paper: "#FFFFFF",
   },
   text: {
-    primary: "#333333",
-    secondary: "#666666",
+    primary: "#18221B",
+    secondary: "#5F6B61",
   },
   info: {
-    main: "#00793A",
+    main: "#1E5A35",
   },
   success: {
-    main: "#65AC1E",
+    main: "#6AAE2C",
   },
   warning: {
     main: "#F39500",

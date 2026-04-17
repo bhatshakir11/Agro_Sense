@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Paper, Button, Avatar } from "@mui/material";
+import { Box, Typography, Paper, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowForward } from "@mui/icons-material";
@@ -23,105 +23,68 @@ const highlights = [
   },
 ];
 
-const stories = [
-  {
-    name: "Ravi Patil",
-    place: "Nashik",
-    quote: "Irrigation timing alerts helped me reduce water use and keep crop quality stable.",
-    avatar:
-      "https://images.unsplash.com/photo-1542327897-d73f4005b533?auto=format&fit=crop&w=300&q=80",
-  },
-  {
-    name: "Sunita Verma",
-    place: "Indore",
-    quote: "Disease detection caught leaf blight early and prevented major loss in my tomato field.",
-    avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
-  },
-];
-
 const WhyChooseUsSection = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ pb: { xs: 4.5, md: 6 } }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} lg={7}>
-          <Paper sx={{ p: 2.4, border: "1px solid #DDE4D8", bgcolor: "#FFFFFF", height: "100%" }}>
-            <Typography variant="h4" sx={{ mb: 1 }}>
-              Why Farmers Prefer This Platform
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              Designed for real field conditions with simple workflows and high-impact decisions.
-            </Typography>
+    <Box sx={{ pb: { xs: 4.5, md: 6 }, maxWidth: 1320, mx: "auto" }}>
+      <Paper sx={{ p: { xs: 2.2, md: 2.8 }, border: "1px solid #DDE4D8", bgcolor: "#FFFFFF" }}>
+        <Box sx={{ textAlign: "center", maxWidth: 780, mx: "auto", mb: 2.4 }}>
+          <Typography variant="h4" sx={{ mb: 1 }}>
+            Why Farmers Prefer This Platform
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Designed for real field conditions with simple workflows and high-impact decisions.
+          </Typography>
+        </Box>
 
-            <Grid container spacing={1.5}>
-              {highlights.map((item, idx) => (
-                <Grid item xs={12} key={item.title}>
-                  <MotionPaper
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.28, delay: idx * 0.05 }}
-                    sx={{ p: 1.6, border: "1px solid #E1E7DD", bgcolor: "#F9FCF6" }}
-                  >
-                    <Typography variant="h6" sx={{ mb: 0.4 }}>
-                      {item.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 0.9 }}>
-                      {item.desc}
-                    </Typography>
-                    <Button
-                      variant="text"
-                      endIcon={<ArrowForward />}
-                      sx={{ px: 0, color: "secondary.main" }}
-                      onClick={() => navigate(`/features/${item.route}`)}
-                    >
-                      Explore details
-                    </Button>
-                  </MotionPaper>
-                </Grid>
-              ))}
-            </Grid>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} lg={5}>
-          <Paper sx={{ p: 2.4, border: "1px solid #DDE4D8", bgcolor: "#FFFFFF", height: "100%" }}>
-            <Typography variant="h6" sx={{ mb: 1.4 }}>
-              Farmer Stories
-            </Typography>
-            <Grid container spacing={1.2}>
-              {stories.map((story, idx) => (
-                <Grid item xs={12} key={story.name}>
-                  <MotionPaper
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.25, delay: idx * 0.05 }}
-                    sx={{ p: 1.5, border: "1px solid #E1E7DD", bgcolor: "#FFFFFF" }}
-                  >
-                    <Box sx={{ display: "flex", gap: 1.2, alignItems: "center", mb: 1 }}>
-                      <Avatar src={story.avatar} alt={story.name} />
-                      <Box>
-                        <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                          {story.name}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {story.place}
-                        </Typography>
-                      </Box>
-                    </Box>
-                    <Typography variant="body2" color="text.secondary">
-                      "{story.quote}"
-                    </Typography>
-                  </MotionPaper>
-                </Grid>
-              ))}
-            </Grid>
-          </Paper>
-        </Grid>
-      </Grid>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))", xl: "repeat(3, minmax(0, 1fr))" },
+            gap: 1.5,
+            alignItems: "stretch",
+          }}
+        >
+          {highlights.map((item, idx) => (
+            <MotionPaper
+              key={item.title}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.28, delay: idx * 0.05 }}
+              sx={{
+                p: 2,
+                border: "1px solid #E1E7DD",
+                bgcolor: "#F9FCF6",
+                minHeight: 190,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-between",
+                textAlign: "center",
+              }}
+            >
+              <Box>
+                <Typography variant="h6" sx={{ mb: 0.7 }}>
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 360, mx: "auto" }}>
+                  {item.desc}
+                </Typography>
+              </Box>
+              <Button
+                variant="text"
+                endIcon={<ArrowForward />}
+                sx={{ mt: 1.6, color: "secondary.main" }}
+                onClick={() => navigate(`/features/${item.route}`)}
+              >
+                Explore details
+              </Button>
+            </MotionPaper>
+          ))}
+        </Box>
+      </Paper>
     </Box>
   );
 };

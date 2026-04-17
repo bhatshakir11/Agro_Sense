@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
+    "postinstall": "node scripts/fix-mediapipe-sourcemap.js",
+    "start": "node scripts/start-dev.js",
+    "start:frontend": "react-scripts start",
+    "start:backend": "npm --prefix ../backend run dev",
     "build": "react-scripts build"
   },
   "keywords": [],
@@ -15,16 +18,20 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.8",
     "@mui/material": "^7.3.8",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.17.10",
     "axios": "^1.13.5",
     "framer-motion": "^11.15.0",
+    "pdfjs-dist": "^3.11.174",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.71.1",
     "react-router-dom": "^7.13.0",
     "react-scripts": "^5.0.1",
-    "recharts": "^3.7.0"
+    "recharts": "^3.7.0",
+    "tesseract.js": "^5.1.1",
+    "three": "^0.183.2"
   },
-  "devDependencies": {},
   "browserslist": {
     "production": [
       ">0.2%",

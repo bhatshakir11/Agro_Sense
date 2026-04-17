@@ -8,9 +8,11 @@ import MarketPricePredictionPage from "./pages/MarketPricePrediction/MarketPrice
 import DiseaseDetectionPage from "./pages/DiseaseDetection/DiseaseDetectionPage";
 import SustainabilityDashboardPage from "./pages/SustainabilityDashboard/SustainabilityDashboardPage";
 import FeatureDetail from "./pages/FeatureDetail/FeatureDetail";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 const AppRoutes = () => (
   <BrowserRouter>
+    <ScrollToTop />
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />

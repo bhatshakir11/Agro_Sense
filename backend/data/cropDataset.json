@@ -1,0 +1,192 @@
+[
+  {
+    "crop": "Wheat",
+    "season": "Rabi",
+    "notes": "Performs well in balanced soils with moderate nitrogen and near-neutral pH.",
+    "soil": {
+      "Nitrogen": { "min": 90, "ideal": 120, "max": 150 },
+      "Phosphorus": { "min": 35, "ideal": 50, "max": 70 },
+      "Potassium": { "min": 35, "ideal": 50, "max": 65 },
+      "pH": { "min": 6.0, "ideal": 6.8, "max": 7.5 },
+      "Organic Carbon": { "min": 0.5, "ideal": 0.8, "max": 1.1 }
+    },
+    "weather": {
+      "temperature": { "min": 12, "ideal": 20, "max": 25 },
+      "humidity": { "min": 35, "ideal": 55, "max": 68 },
+      "rainChance": { "min": 5, "ideal": 25, "max": 45 },
+      "stormTolerance": "low"
+    },
+    "sustainability": { "Environmental": 84, "Economic": 88, "Social": 80 }
+  },
+  {
+    "crop": "Rice",
+    "season": "Kharif",
+    "notes": "Suitable for higher fertility soils with good moisture support.",
+    "soil": {
+      "Nitrogen": { "min": 110, "ideal": 145, "max": 180 },
+      "Phosphorus": { "min": 25, "ideal": 40, "max": 55 },
+      "Potassium": { "min": 40, "ideal": 60, "max": 80 },
+      "pH": { "min": 5.5, "ideal": 6.3, "max": 7.0 },
+      "Organic Carbon": { "min": 0.6, "ideal": 0.95, "max": 1.3 }
+    },
+    "weather": {
+      "temperature": { "min": 22, "ideal": 28, "max": 35 },
+      "humidity": { "min": 60, "ideal": 78, "max": 95 },
+      "rainChance": { "min": 40, "ideal": 65, "max": 90 },
+      "stormTolerance": "medium"
+    },
+    "sustainability": { "Environmental": 72, "Economic": 90, "Social": 86 }
+  },
+  {
+    "crop": "Maize",
+    "season": "Kharif/Rabi",
+    "notes": "Needs moderate to high nutrients and responds strongly to nitrogen balance.",
+    "soil": {
+      "Nitrogen": { "min": 100, "ideal": 135, "max": 170 },
+      "Phosphorus": { "min": 30, "ideal": 45, "max": 60 },
+      "Potassium": { "min": 35, "ideal": 55, "max": 75 },
+      "pH": { "min": 5.8, "ideal": 6.5, "max": 7.4 },
+      "Organic Carbon": { "min": 0.5, "ideal": 0.75, "max": 1.1 }
+    },
+    "weather": {
+      "temperature": { "min": 18, "ideal": 26, "max": 32 },
+      "humidity": { "min": 45, "ideal": 62, "max": 80 },
+      "rainChance": { "min": 20, "ideal": 45, "max": 70 },
+      "stormTolerance": "medium"
+    },
+    "sustainability": { "Environmental": 78, "Economic": 86, "Social": 79 }
+  },
+  {
+    "crop": "Cotton",
+    "season": "Kharif",
+    "notes": "Prefers deeper soils with good potassium and stable pH.",
+    "soil": {
+      "Nitrogen": { "min": 80, "ideal": 110, "max": 140 },
+      "Phosphorus": { "min": 25, "ideal": 40, "max": 55 },
+      "Potassium": { "min": 50, "ideal": 70, "max": 95 },
+      "pH": { "min": 6.0, "ideal": 7.0, "max": 8.0 },
+      "Organic Carbon": { "min": 0.45, "ideal": 0.7, "max": 1.0 }
+    },
+    "weather": {
+      "temperature": { "min": 21, "ideal": 29, "max": 35 },
+      "humidity": { "min": 40, "ideal": 58, "max": 72 },
+      "rainChance": { "min": 15, "ideal": 35, "max": 60 },
+      "stormTolerance": "medium"
+    },
+    "sustainability": { "Environmental": 68, "Economic": 87, "Social": 74 }
+  },
+  {
+    "crop": "Sugarcane",
+    "season": "Annual",
+    "notes": "High-demand crop that benefits from richer fertility and organic matter.",
+    "soil": {
+      "Nitrogen": { "min": 130, "ideal": 170, "max": 210 },
+      "Phosphorus": { "min": 35, "ideal": 55, "max": 75 },
+      "Potassium": { "min": 55, "ideal": 80, "max": 110 },
+      "pH": { "min": 6.2, "ideal": 7.0, "max": 7.8 },
+      "Organic Carbon": { "min": 0.7, "ideal": 1.1, "max": 1.5 }
+    },
+    "weather": {
+      "temperature": { "min": 24, "ideal": 30, "max": 35 },
+      "humidity": { "min": 50, "ideal": 70, "max": 85 },
+      "rainChance": { "min": 20, "ideal": 45, "max": 75 },
+      "stormTolerance": "medium"
+    },
+    "sustainability": { "Environmental": 64, "Economic": 92, "Social": 76 }
+  },
+  {
+    "crop": "Soybean",
+    "season": "Kharif",
+    "notes": "Works well in moderate nutrient soils and supports nitrogen-fixing systems.",
+    "soil": {
+      "Nitrogen": { "min": 70, "ideal": 95, "max": 120 },
+      "Phosphorus": { "min": 30, "ideal": 45, "max": 60 },
+      "Potassium": { "min": 30, "ideal": 45, "max": 65 },
+      "pH": { "min": 6.0, "ideal": 6.7, "max": 7.5 },
+      "Organic Carbon": { "min": 0.5, "ideal": 0.8, "max": 1.1 }
+    },
+    "weather": {
+      "temperature": { "min": 20, "ideal": 26, "max": 32 },
+      "humidity": { "min": 50, "ideal": 68, "max": 82 },
+      "rainChance": { "min": 25, "ideal": 50, "max": 75 },
+      "stormTolerance": "low"
+    },
+    "sustainability": { "Environmental": 89, "Economic": 82, "Social": 81 }
+  },
+  {
+    "crop": "Groundnut",
+    "season": "Kharif/Rabi",
+    "notes": "Prefers lighter soils with moderate fertility and healthy organic carbon.",
+    "soil": {
+      "Nitrogen": { "min": 65, "ideal": 90, "max": 115 },
+      "Phosphorus": { "min": 25, "ideal": 38, "max": 50 },
+      "Potassium": { "min": 30, "ideal": 45, "max": 60 },
+      "pH": { "min": 6.0, "ideal": 6.6, "max": 7.3 },
+      "Organic Carbon": { "min": 0.45, "ideal": 0.75, "max": 1.0 }
+    },
+    "weather": {
+      "temperature": { "min": 22, "ideal": 27, "max": 32 },
+      "humidity": { "min": 45, "ideal": 60, "max": 72 },
+      "rainChance": { "min": 15, "ideal": 35, "max": 60 },
+      "stormTolerance": "low"
+    },
+    "sustainability": { "Environmental": 86, "Economic": 80, "Social": 78 }
+  },
+  {
+    "crop": "Pearl Millet",
+    "season": "Kharif",
+    "notes": "Adaptable crop for lower fertility soils and warmer conditions.",
+    "soil": {
+      "Nitrogen": { "min": 45, "ideal": 70, "max": 95 },
+      "Phosphorus": { "min": 18, "ideal": 28, "max": 40 },
+      "Potassium": { "min": 20, "ideal": 35, "max": 50 },
+      "pH": { "min": 5.5, "ideal": 6.7, "max": 8.0 },
+      "Organic Carbon": { "min": 0.35, "ideal": 0.6, "max": 0.9 }
+    },
+    "weather": {
+      "temperature": { "min": 24, "ideal": 31, "max": 38 },
+      "humidity": { "min": 30, "ideal": 48, "max": 65 },
+      "rainChance": { "min": 10, "ideal": 30, "max": 50 },
+      "stormTolerance": "high"
+    },
+    "sustainability": { "Environmental": 93, "Economic": 76, "Social": 84 }
+  },
+  {
+    "crop": "Tomato",
+    "season": "Multiple",
+    "notes": "Needs fertile soil, moderate acidity, and good potassium support for fruiting.",
+    "soil": {
+      "Nitrogen": { "min": 95, "ideal": 125, "max": 155 },
+      "Phosphorus": { "min": 35, "ideal": 50, "max": 65 },
+      "Potassium": { "min": 55, "ideal": 75, "max": 95 },
+      "pH": { "min": 6.0, "ideal": 6.6, "max": 7.2 },
+      "Organic Carbon": { "min": 0.7, "ideal": 1.0, "max": 1.3 }
+    },
+    "weather": {
+      "temperature": { "min": 18, "ideal": 24, "max": 30 },
+      "humidity": { "min": 45, "ideal": 60, "max": 75 },
+      "rainChance": { "min": 5, "ideal": 20, "max": 45 },
+      "stormTolerance": "low"
+    },
+    "sustainability": { "Environmental": 75, "Economic": 89, "Social": 77 }
+  },
+  {
+    "crop": "Potato",
+    "season": "Rabi",
+    "notes": "Favors loose, fertile soils with moderate acidity and balanced nutrients.",
+    "soil": {
+      "Nitrogen": { "min": 90, "ideal": 120, "max": 150 },
+      "Phosphorus": { "min": 35, "ideal": 48, "max": 60 },
+      "Potassium": { "min": 60, "ideal": 85, "max": 110 },
+      "pH": { "min": 5.2, "ideal": 5.9, "max": 6.7 },
+      "Organic Carbon": { "min": 0.65, "ideal": 0.95, "max": 1.25 }
+    },
+    "weather": {
+      "temperature": { "min": 12, "ideal": 19, "max": 25 },
+      "humidity": { "min": 50, "ideal": 65, "max": 78 },
+      "rainChance": { "min": 5, "ideal": 20, "max": 40 },
+      "stormTolerance": "low"
+    },
+    "sustainability": { "Environmental": 71, "Economic": 87, "Social": 75 }
+  }
+]

@@ -65,7 +65,16 @@ const LineChart = ({
       />
       <Tooltip content={<ChartTooltip yFormatter={yFormatter} />} />
       <Legend iconType="circle" />
-      {area && <Area type="monotone" dataKey={yKey} stroke="none" fill={`url(#gradient-${yKey})`} />}
+      {area && (
+        <Area
+          type="monotone"
+          dataKey={yKey}
+          stroke="none"
+          fill={`url(#gradient-${yKey})`}
+          legendType="none"
+          isAnimationActive={false}
+        />
+      )}
       <Line
         type="monotone"
         name={yLabel}
@@ -74,6 +83,7 @@ const LineChart = ({
         strokeWidth={2.8}
         dot={false}
         activeDot={{ r: 5 }}
+        connectNulls
       />
       {secondaryKey && (
         <Line
@@ -84,6 +94,7 @@ const LineChart = ({
           strokeWidth={2.2}
           dot={false}
           activeDot={{ r: 4 }}
+          connectNulls
         />
       )}
     </ReLineChart>

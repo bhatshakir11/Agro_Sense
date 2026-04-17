@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Grid,
   MenuItem,
@@ -8,122 +8,228 @@ import {
   Box,
   Chip,
   Stack,
+  Alert,
+  Typography,
+  CircularProgress,
 } from "@mui/material";
 import Card from "../../components/common/Card";
 import LineChart from "../../components/charts/LineChart";
 import PageHero from "../../components/common/PageHero";
+import { getMarketOverview } from "../../services/marketService";
+import { getCropMedia } from "../../data/cropMedia";
 
-const cropInsights = {
-  wheat: {
-    label: "Wheat",
-    image:
-      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80",
-    trend: [
-      { month: "Jan", price: 2080, demand: 72 },
-      { month: "Feb", price: 2140, demand: 75 },
-      { month: "Mar", price: 2190, demand: 78 },
-      { month: "Apr", price: 2245, demand: 81 },
-      { month: "May", price: 2280, demand: 79 },
-      { month: "Jun", price: 2335, demand: 84 },
-    ],
-    note: "Demand is stable with positive momentum before procurement season.",
-  },
-  rice: {
-    label: "Rice",
-    image:
-      "https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&w=1000&q=80",
-    trend: [
-      { month: "Jan", price: 2720, demand: 65 },
-      { month: "Feb", price: 2685, demand: 67 },
-      { month: "Mar", price: 2760, demand: 72 },
-      { month: "Apr", price: 2810, demand: 74 },
-      { month: "May", price: 2870, demand: 77 },
-      { month: "Jun", price: 2925, demand: 80 },
-    ],
-    note: "Export-led demand is improving; consider staggered sale strategy.",
-  },
-  maize: {
-    label: "Maize",
-    image:
-      "https://images.unsplash.com/photo-1601593768799-76d328f8f9ba?auto=format&fit=crop&w=1000&q=80",
-    trend: [
-      { month: "Jan", price: 1860, demand: 68 },
-      { month: "Feb", price: 1910, demand: 71 },
-      { month: "Mar", price: 1965, demand: 76 },
-      { month: "Apr", price: 2015, demand: 79 },
-      { month: "May", price: 2050, demand: 82 },
-      { month: "Jun", price: 2095, demand: 85 },
-    ],
-    note: "Feed demand is driving upward price potential through next cycle.",
-  },
-};
+const cropOptions = [
+  { value: "wheat", label: "Wheat" },
+  { value: "rice", label: "Rice" },
+  { value: "maize", label: "Maize" },
+  { value: "cotton", label: "Cotton" },
+  { value: "sugarcane", label: "Sugarcane" },
+  { value: "soybean", label: "Soybean" },
+  { value: "groundnut", label: "Groundnut" },
+  { value: "pearl-millet", label: "Pearl Millet" },
+  { value: "tomato", label: "Tomato" },
+  { value: "potato", label: "Potato" },
+];
 
 const MarketPricePredictionPage = () => {
-  const [crop, setCrop] = React.useState("wheat");
-  const activeCrop = useMemo(() => cropInsights[crop], [crop]);
+  const [crop, setCrop] = useState("wheat");
+  const [marketData, setMarketData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const latestPrice = activeCrop.trend[activeCrop.trend.length - 1].price;
-  const previousPrice = activeCrop.trend[activeCrop.trend.length - 2].price;
-  const change = (((latestPrice - previousPrice) / previousPrice) * 100).toFixed(1);
+  useEffect(() => {
+    let active = true;
+
+    const loadMarket = async () => {
+      try {
+        setLoading(true);
+        setError("");
+        const payload = await getMarketOverview(crop);
+
+        if (!active) {
+          return;
+        }
+
+        setMarketData(payload);
+      } catch (requestError) {
+        if (!active) {
+          return;
+        }
+
+        setError(
+          requestError.response?.data?.message || "Unable to fetch market data right now."
+        );
+        setMarketData(null);
+      } finally {
+        if (active) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadMarket();
+
+    return () => {
+      active = false;
+    };
+  }, [crop]);
+
+  const activeVisual = useMemo(
+    () => getCropMedia(marketData?.label || cropOptions.find((option) => option.value === crop)?.label || crop),
+    [crop, marketData]
+  );
 
   return (
     <Box>
       <PageHero
         eyebrow="Market Intelligence"
         title="Market Price Prediction"
-        subtitle="Analyze crop-wise trend momentum and demand pressure to improve selling timing and income stability."
-        image="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1200&q=80"
-        chips={["Mandi Trend", "Demand Index", "Profit Advisory"]}
+        subtitle="Pull crop price data from the backend, inspect the latest mandi movement, and view a short price forecast before deciding when to sell."
+        chips={["Backend Connected", "Price Forecast", "Mandi Tracking"]}
       />
+
+      {error && (
+        <Alert severity="error" sx={{ mb: 2 }}>
+          {error}
+        </Alert>
+      )}
 
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
-          <Card title="Crop Selection" subtitle="Switch crop to compare trend behavior and demand pressure.">
+          <Card title="Crop Selection" subtitle="Switch crop to load current price movement and prediction.">
             <FormControl fullWidth>
               <InputLabel>Crop</InputLabel>
               <Select value={crop} label="Crop" onChange={(event) => setCrop(event.target.value)}>
-                <MenuItem value="wheat">Wheat</MenuItem>
-                <MenuItem value="rice">Rice</MenuItem>
-                <MenuItem value="maize">Maize</MenuItem>
+                {cropOptions.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
+
             <Box sx={{ mt: 1.8 }}>
-              <img
-                src={activeCrop.image}
-                alt={activeCrop.label}
-                style={{ width: "100%", height: 180, objectFit: "cover", border: "1px solid #DDE3D8" }}
-              />
+              {activeVisual.image ? (
+                <img
+                  src={activeVisual.image}
+                  alt={activeVisual.alt}
+                  style={{ width: "100%", height: 180, objectFit: "cover", border: "1px solid #DDE3D8", borderRadius: 18 }}
+                />
+              ) : (
+                <Box
+                  sx={{
+                    height: 180,
+                    border: "1px solid #DDE3D8",
+                    borderRadius: "18px",
+                    display: "grid",
+                    placeItems: "center",
+                    textAlign: "center",
+                    px: 2,
+                    background:
+                      "radial-gradient(circle at top left, rgba(232,243,203,0.92), rgba(232,243,203,0) 32%), linear-gradient(135deg, #F8FBF5 0%, #EEF5E7 100%)",
+                  }}
+                >
+                  <Box>
+                    <Typography variant="overline" sx={{ color: "secondary.main", letterSpacing: "0.08em" }}>
+                      Crop visual
+                    </Typography>
+                    <Typography variant="h5">
+                      {marketData?.label || cropOptions.find((option) => option.value === crop)?.label}
+                    </Typography>
+                  </Box>
+                </Box>
+              )}
             </Box>
+
+            {loading ? (
+              <Box sx={{ minHeight: 120, display: "grid", placeItems: "center", mt: 1.6 }}>
+                <CircularProgress color="success" />
+              </Box>
+            ) : marketData ? (
+              <Stack spacing={1.1} sx={{ mt: 1.8 }}>
+                <Chip
+                  label={`${marketData.market.name}, ${marketData.market.state}`}
+                  color="success"
+                  variant="outlined"
+                />
+                <Chip
+                  label={
+                    marketData.source.type === "live"
+                      ? "Live source connected"
+                      : "Fallback history in use"
+                  }
+                  color={marketData.source.type === "live" ? "primary" : "warning"}
+                  variant="outlined"
+                />
+                <Typography variant="body2" color="text.secondary">
+                  Latest modal price: Rs {marketData.latest.modalPrice}/{marketData.unit === "Rs/quintal" ? "quintal" : "unit"}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Latest record date: {marketData.latest.date}
+                </Typography>
+              </Stack>
+            ) : null}
           </Card>
         </Grid>
 
         <Grid item xs={12} md={8}>
           <Card
-            title={`${activeCrop.label} Price Forecast`}
-            subtitle="Price and demand movement for the upcoming months."
-            rightNode={<Chip label={`Trend +${change}%`} color="success" />}
+            title={marketData ? `${marketData.label} Price Forecast` : "Price Forecast"}
+            subtitle="Actual mandi prices from the backend with predicted next steps."
+            rightNode={
+              marketData ? (
+                <Chip
+                  label={`${marketData.summary.trendPercent >= 0 ? "+" : ""}${marketData.summary.trendPercent}% trend`}
+                  color={marketData.summary.trendPercent >= 0 ? "success" : "warning"}
+                />
+              ) : null
+            }
           >
-            <LineChart
-              data={activeCrop.trend}
-              xKey="month"
-              yKey="price"
-              secondaryKey="demand"
-              yLabel="Price (Rs/quintal)"
-              secondaryLabel="Demand Index"
-              color="#00793A"
-              secondaryColor="#F39500"
-              yFormatter={(value) => `Rs ${value}`}
-            />
+            {loading ? (
+              <Box sx={{ minHeight: 320, display: "grid", placeItems: "center" }}>
+                <CircularProgress color="success" />
+              </Box>
+            ) : marketData ? (
+              <LineChart
+                data={marketData.chartSeries}
+                xKey="label"
+                yKey="actualPrice"
+                secondaryKey="predictedPrice"
+                yLabel="Actual Price"
+                secondaryLabel="Predicted Price"
+                color="#00793A"
+                secondaryColor="#F39500"
+                yFormatter={(value) => (value ? `Rs ${value}` : "-")}
+              />
+            ) : null}
           </Card>
         </Grid>
 
         <Grid item xs={12}>
-          <Card title="Profit Advisory" subtitle={activeCrop.note}>
-            <Stack direction={{ xs: "column", md: "row" }} spacing={1}>
-              <Chip label={`Expected Price: Rs ${latestPrice}/quintal`} color="primary" />
-              <Chip label="Suggested action: phased selling over 2-3 weeks" color="secondary" />
-              <Chip label="Monitor mandi arrivals every 3 days" variant="outlined" />
-            </Stack>
+          <Card
+            title="Market Advisory"
+            subtitle={
+              marketData
+                ? marketData.summary.recommendation
+                : "Backend market advisory will appear after the data loads."
+            }
+          >
+            {marketData && (
+              <Stack direction={{ xs: "column", md: "row" }} spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
+                <Chip label={`Predicted average: Rs ${marketData.summary.predictedAverage}/quintal`} color="primary" />
+                <Chip label={`Demand score: ${marketData.summary.demandScore}/100`} color="secondary" />
+                <Chip label={`Volatility: ${marketData.summary.volatility}`} variant="outlined" />
+                {marketData.latest.arrivalTonnes ? (
+                  <Chip label={`Arrivals: ${marketData.latest.arrivalTonnes} tonnes`} variant="outlined" />
+                ) : null}
+              </Stack>
+            )}
+
+            {marketData?.source.warning && (
+              <Alert severity="info" sx={{ mt: 2 }}>
+                {marketData.source.warning}
+              </Alert>
+            )}
           </Card>
         </Grid>
       </Grid>

@@ -1,0 +1,53 @@
+{
+  "wheat": {
+    "label": "Wheat",
+    "state": "Karnataka",
+    "district": "Bengaluru",
+    "market": "Yeshwanthpur",
+    "unit": "Rs/quintal",
+    "series": [
+      { "date": "2026-04-04", "modalPrice": 2310, "minPrice": 2260, "maxPrice": 2355, "arrivalTonnes": 132 },
+      { "date": "2026-04-05", "modalPrice": 2324, "minPrice": 2278, "maxPrice": 2368, "arrivalTonnes": 128 },
+      { "date": "2026-04-06", "modalPrice": 2332, "minPrice": 2285, "maxPrice": 2372, "arrivalTonnes": 121 },
+      { "date": "2026-04-07", "modalPrice": 2341, "minPrice": 2295, "maxPrice": 2384, "arrivalTonnes": 117 },
+      { "date": "2026-04-08", "modalPrice": 2358, "minPrice": 2310, "maxPrice": 2398, "arrivalTonnes": 110 },
+      { "date": "2026-04-09", "modalPrice": 2366, "minPrice": 2320, "maxPrice": 2408, "arrivalTonnes": 106 },
+      { "date": "2026-04-10", "modalPrice": 2378, "minPrice": 2334, "maxPrice": 2418, "arrivalTonnes": 99 },
+      { "date": "2026-04-11", "modalPrice": 2391, "minPrice": 2340, "maxPrice": 2430, "arrivalTonnes": 96 }
+    ]
+  },
+  "rice": {
+    "label": "Rice",
+    "state": "Karnataka",
+    "district": "Bengaluru",
+    "market": "KR Market",
+    "unit": "Rs/quintal",
+    "series": [
+      { "date": "2026-04-04", "modalPrice": 2862, "minPrice": 2810, "maxPrice": 2920, "arrivalTonnes": 152 },
+      { "date": "2026-04-05", "modalPrice": 2870, "minPrice": 2822, "maxPrice": 2929, "arrivalTonnes": 149 },
+      { "date": "2026-04-06", "modalPrice": 2886, "minPrice": 2840, "maxPrice": 2940, "arrivalTonnes": 146 },
+      { "date": "2026-04-07", "modalPrice": 2898, "minPrice": 2848, "maxPrice": 2950, "arrivalTonnes": 141 },
+      { "date": "2026-04-08", "modalPrice": 2912, "minPrice": 2862, "maxPrice": 2968, "arrivalTonnes": 136 },
+      { "date": "2026-04-09", "modalPrice": 2920, "minPrice": 2874, "maxPrice": 2976, "arrivalTonnes": 131 },
+      { "date": "2026-04-10", "modalPrice": 2938, "minPrice": 2892, "maxPrice": 2992, "arrivalTonnes": 125 },
+      { "date": "2026-04-11", "modalPrice": 2951, "minPrice": 2904, "maxPrice": 3005, "arrivalTonnes": 120 }
+    ]
+  },
+  "maize": {
+    "label": "Maize",
+    "state": "Karnataka",
+    "district": "Tumakuru",
+    "market": "Tumakuru",
+    "unit": "Rs/quintal",
+    "series": [
+      { "date": "2026-04-04", "modalPrice": 2195, "minPrice": 2146, "maxPrice": 2242, "arrivalTonnes": 141 },
+      { "date": "2026-04-05", "modalPrice": 2202, "minPrice": 2154, "maxPrice": 2249, "arrivalTonnes": 138 },
+      { "date": "2026-04-06", "modalPrice": 2210, "minPrice": 2160, "maxPrice": 2258, "arrivalTonnes": 132 },
+      { "date": "2026-04-07", "modalPrice": 2224, "minPrice": 2176, "maxPrice": 2271, "arrivalTonnes": 126 },
+      { "date": "2026-04-08", "modalPrice": 2233, "minPrice": 2182, "maxPrice": 2280, "arrivalTonnes": 121 },
+      { "date": "2026-04-09", "modalPrice": 2247, "minPrice": 2198, "maxPrice": 2293, "arrivalTonnes": 118 },
+      { "date": "2026-04-10", "modalPrice": 2261, "minPrice": 2215, "maxPrice": 2308, "arrivalTonnes": 114 },
+      { "date": "2026-04-11", "modalPrice": 2274, "minPrice": 2226, "maxPrice": 2320, "arrivalTonnes": 111 }
+    ]
+  }
+}
