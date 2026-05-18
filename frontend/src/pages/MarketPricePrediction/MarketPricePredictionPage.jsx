@@ -17,6 +17,8 @@ import LineChart from "../../components/charts/LineChart";
 import PageHero from "../../components/common/PageHero";
 import { getMarketOverview } from "../../services/marketService";
 import { getCropMedia } from "../../data/cropMedia";
+import { useAppData } from "../../context/AppDataContext";
+import { normalizeCropCommodity } from "../../utils/cropPreference";
 
 const cropOptions = [
   { value: "wheat", label: "Wheat" },
@@ -32,7 +34,14 @@ const cropOptions = [
 ];
 
 const MarketPricePredictionPage = () => {
-  const [crop, setCrop] = useState("wheat");
+  const { appData, updateMarketData } = useAppData();
+  const [crop, setCrop] = useState(() => {
+    return (
+      appData.market?.commodity ||
+      normalizeCropCommodity(appData.crop?.recommendation?.primaryRecommendation?.crop || "") ||
+      "wheat"
+    );
+  });
   const [marketData, setMarketData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -51,6 +60,10 @@ const MarketPricePredictionPage = () => {
         }
 
         setMarketData(payload);
+        updateMarketData({
+          commodity: payload.commodity,
+          overview: payload,
+        });
       } catch (requestError) {
         if (!active) {
           return;

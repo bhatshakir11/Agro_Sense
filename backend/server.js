@@ -1,8 +1,14 @@
 const http = require("http");
 const { URL } = require("url");
+const { loadEnv } = require("./utils/loadEnv");
 const { handleWeatherRoutes } = require("./routes/weatherRoutes");
 const { handleCropRoutes } = require("./routes/cropRoutes");
 const { handleMarketRoutes } = require("./routes/marketRoutes");
+const { handleDiseaseRoutes } = require("./routes/diseaseRoutes");
+const { handleDashboardRoutes } = require("./routes/dashboardRoutes");
+const { handleAssistantRoutes } = require("./routes/assistantRoutes");
+
+loadEnv();
 
 const PORT = process.env.PORT || 5000;
 
@@ -32,6 +38,18 @@ const server = http.createServer((request, response) => {
   }
 
   if (handleMarketRoutes(request, response, parsedUrl)) {
+    return;
+  }
+
+  if (handleDiseaseRoutes(request, response, parsedUrl)) {
+    return;
+  }
+
+  if (handleDashboardRoutes(request, response, parsedUrl)) {
+    return;
+  }
+
+  if (handleAssistantRoutes(request, response, parsedUrl)) {
     return;
   }
 

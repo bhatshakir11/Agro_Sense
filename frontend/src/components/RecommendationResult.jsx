@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Card, Typography, LinearProgress, Chip, Stack, Alert, Paper } from "@mui/material";
 import { motion } from "framer-motion";
-import { AutoAwesome, Agriculture, Thermostat, WaterDrop } from "@mui/icons-material";
 import { getCropMedia } from "../data/cropMedia";
 
 function EmptyState() {
@@ -12,87 +11,15 @@ function EmptyState() {
         p: 2.4,
         border: "1px solid #DDE4D8",
         bgcolor: "#FFFFFF",
-        overflow: "hidden",
-        position: "relative",
         background: "linear-gradient(180deg, #FFFFFF 0%, #F9FCF6 100%)",
       }}
     >
-      <Box
-        sx={{
-          position: "absolute",
-          top: -30,
-          right: -20,
-          width: 160,
-          height: 160,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(101,172,30,0.18) 0%, rgba(101,172,30,0) 68%)",
-        }}
-      />
-      <Stack spacing={1.8} sx={{ position: "relative", zIndex: 1 }}>
-        <Chip
-          icon={<AutoAwesome />}
-          label="Recommendation Panel"
-          sx={{ alignSelf: "flex-start", bgcolor: "#EFF8E3", color: "secondary.main" }}
-        />
-        <Box>
-          <Typography variant="h5" sx={{ mb: 0.8 }}>
-            Waiting for soil analysis
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 420 }}>
-            Upload a soil report or enter soil values manually to unlock crop ranking, weather fit,
-            and nutrient-based guidance.
-          </Typography>
-        </Box>
-
-        <Stack spacing={1.1}>
-          {[
-            {
-              icon: <Agriculture fontSize="small" />,
-              text: "Get a primary crop recommendation with alternatives.",
-            },
-            {
-              icon: <Thermostat fontSize="small" />,
-              text: "See how current weather and season affect crop fit.",
-            },
-            {
-              icon: <WaterDrop fontSize="small" />,
-              text: "Review nutrient match insights before sowing.",
-            },
-          ].map((item) => (
-            <Paper
-              key={item.text}
-              sx={{
-                p: 1.3,
-                border: "1px solid #E3EAD9",
-                bgcolor: "#FAFCF8",
-                display: "flex",
-                gap: 1.1,
-                alignItems: "center",
-                boxShadow: "none",
-                borderRadius: "18px",
-              }}
-            >
-              <Box
-                sx={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: "12px",
-                  display: "grid",
-                  placeItems: "center",
-                  bgcolor: "#EAF5DD",
-                  color: "secondary.main",
-                  flexShrink: 0,
-                }}
-              >
-                {item.icon}
-              </Box>
-              <Typography variant="body2" color="text.secondary">
-                {item.text}
-              </Typography>
-            </Paper>
-          ))}
-        </Stack>
-      </Stack>
+      <Typography variant="h5" sx={{ mb: 0.8 }}>
+        No recommendation yet
+      </Typography>
+      <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 420 }}>
+        Upload a soil report or enter soil values manually to see the recommended crop here.
+      </Typography>
     </Card>
   );
 }
@@ -203,27 +130,20 @@ export default function RecommendationResult({ result }) {
               }}
             >
               <Typography variant="h6" sx={{ mb: 1 }}>
-                Weather and Season Fit
+                Weather Fit
               </Typography>
               <Stack direction="row" spacing={1} sx={{ mb: 1.1, flexWrap: "wrap", gap: 1 }}>
                 <Chip label={`Weather Score ${primary.weatherMatch.score}%`} color="success" variant="outlined" />
                 <Chip label={`Season ${primary.weatherMatch.season}`} variant="outlined" />
                 <Chip
-                  label={`${weatherContext.current.temperature}°C | ${weatherContext.current.humidity}% humidity`}
+                  label={`${weatherContext.current.temperature} deg C | ${weatherContext.current.humidity}% humidity`}
                   variant="outlined"
                 />
                 <Chip label={`Storm ${weatherContext.current.stormRisk}`} variant="outlined" />
               </Stack>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+              <Typography variant="body2" color="text.secondary">
                 Location: {weatherContext.location.name}
               </Typography>
-              <Stack spacing={0.8}>
-                {primary.weatherMatch.insights.map((insight) => (
-                  <Typography key={insight} variant="body2" color="text.secondary">
-                    {insight}
-                  </Typography>
-                ))}
-              </Stack>
             </Paper>
           )}
 
@@ -252,7 +172,7 @@ export default function RecommendationResult({ result }) {
           </Box>
 
           <Typography variant="h6" sx={{ mb: 0.9 }}>
-            Soil Match Insights
+            Soil Match
           </Typography>
           <Stack spacing={0.9} mb={1.8}>
             {primary.insights.map((insight) => (
@@ -269,17 +189,10 @@ export default function RecommendationResult({ result }) {
                 }}
               >
                 <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.25 }}>
-                  {insight.field}: {insight.actual} (ideal {insight.ideal}, target {insight.range})
+                  {insight.field}: {insight.actual}
                 </Typography>
-                <Typography
-                  variant="caption"
-                  color={insight.status === "attention" ? "error.main" : "text.secondary"}
-                >
-                  {insight.status === "good"
-                    ? "Strong match for this crop."
-                    : insight.status === "fair"
-                    ? "Usable, but nutrient balance can be improved."
-                    : "Outside the preferred range for this crop."}
+                <Typography variant="caption" color="text.secondary">
+                  Ideal {insight.ideal} | Target {insight.range}
                 </Typography>
               </Paper>
             ))}
@@ -288,7 +201,7 @@ export default function RecommendationResult({ result }) {
           {result.alternatives?.length > 0 && (
             <>
               <Typography variant="h6" sx={{ mb: 0.8 }}>
-                Alternative Crops
+                Alternatives
               </Typography>
               <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
                 {result.alternatives.map((alternative) => (

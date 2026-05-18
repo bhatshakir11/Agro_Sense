@@ -23,8 +23,10 @@ import { motion } from "framer-motion";
 import PageHero from "../../components/common/PageHero";
 import { getWeatherByCoordinates, getWeatherByPlace } from "../../services/weatherService";
 import { getSavedWeatherLocation, setSavedWeatherLocation } from "../../utils/weatherLocationStorage";
+import { useAppData } from "../../context/AppDataContext";
 
 const WeatherAnalysisPage = () => {
+  const { updateWeatherData } = useAppData();
   const [place, setPlace] = useState("");
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -39,6 +41,10 @@ const WeatherAnalysisPage = () => {
       const data = await getWeatherByPlace(nextPlace);
       setWeather(data);
       setPlace(data.location.name);
+      updateWeatherData({
+        location: data.location,
+        weather: data,
+      });
       setSavedWeatherLocation({
         latitude: data.location.latitude,
         longitude: data.location.longitude,
@@ -66,6 +72,10 @@ const WeatherAnalysisPage = () => {
         place: data.location.name,
       };
       setPlace(data.location.name);
+      updateWeatherData({
+        location: data.location,
+        weather: data,
+      });
       setSavedWeatherLocation(resolvedLocation);
     } catch (requestError) {
       setLocationStatus("");

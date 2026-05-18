@@ -1,0 +1,501 @@
+{
+  "tomato": {
+    "label": "Tomato",
+    "diseases": [
+      {
+        "name": "Early Blight",
+        "symptoms": ["brown concentric spots", "older leaf lesions", "yellow halo", "lower leaves affected"],
+        "medications": [
+          {
+            "name": "Mancozeb",
+            "type": "Protectant fungicide",
+            "usage": "Apply as per label interval and coverage guidance on affected foliage.",
+            "purpose": "Protects healthy foliage from further early blight spread."
+          },
+          {
+            "name": "Chlorothalonil",
+            "type": "Protectant fungicide",
+            "usage": "Use label-directed foliar spray schedule with full leaf coverage.",
+            "purpose": "Reduces lesion expansion and protects new growth."
+          },
+          {
+            "name": "Azoxystrobin",
+            "type": "Systemic fungicide",
+            "usage": "Rotate with non-strobilurin chemistry to avoid resistance pressure.",
+            "purpose": "Helps suppress active fungal infection."
+          }
+        ],
+        "immediateActions": [
+          "Remove heavily infected lower leaves.",
+          "Avoid overhead irrigation late in the day.",
+          "Improve airflow around the crop canopy."
+        ],
+        "organicSupport": [
+          "Use mulch to reduce soil splash onto leaves.",
+          "Sanitize tools and remove infected debris after harvest."
+        ]
+      },
+      {
+        "name": "Late Blight",
+        "symptoms": ["water-soaked lesions", "dark blotches", "white mould underside", "rapid spread"],
+        "medications": [
+          {
+            "name": "Cymoxanil plus Mancozeb",
+            "type": "Curative plus protectant fungicide",
+            "usage": "Use promptly after symptom appearance following label guidance.",
+            "purpose": "Suppresses active late blight infection and protects healthy tissue."
+          },
+          {
+            "name": "Metalaxyl mix",
+            "type": "Systemic fungicide",
+            "usage": "Use only where label permits and rotate with other chemistries.",
+            "purpose": "Helps manage oomycete-driven late blight."
+          }
+        ],
+        "immediateActions": [
+          "Act quickly because late blight can spread fast in cool, wet weather.",
+          "Remove severely affected foliage if practical.",
+          "Avoid moving through wet fields to limit spread."
+        ],
+        "organicSupport": [
+          "Keep leaves dry for as much of the day as possible.",
+          "Destroy infected plant residues away from the field."
+        ]
+      },
+      {
+        "name": "Septoria Leaf Spot",
+        "symptoms": ["small circular spots", "grey center", "dark margins", "lower canopy spotting"],
+        "medications": [
+          {
+            "name": "Mancozeb",
+            "type": "Protectant fungicide",
+            "usage": "Apply with full canopy coverage at label intervals.",
+            "purpose": "Protects new foliage from further septoria infection."
+          },
+          {
+            "name": "Chlorothalonil",
+            "type": "Protectant fungicide",
+            "usage": "Use a rotational spray schedule with good coverage.",
+            "purpose": "Reduces septoria spread in the canopy."
+          }
+        ],
+        "immediateActions": [
+          "Prune lower infected leaves where practical.",
+          "Reduce leaf wetness and splashing irrigation."
+        ],
+        "organicSupport": [
+          "Use wider spacing to improve airflow.",
+          "Rotate away from tomato-family crops."
+        ]
+      },
+      {
+        "name": "Bacterial Spot",
+        "symptoms": ["small dark spots", "greasy lesions", "yellow halo", "shot-hole appearance"],
+        "medications": [
+          {
+            "name": "Copper oxychloride",
+            "type": "Bactericide",
+            "usage": "Apply at label rate with full leaf coverage.",
+            "purpose": "Suppresses bacterial spread on foliage."
+          },
+          {
+            "name": "Copper hydroxide plus Mancozeb",
+            "type": "Bactericide plus protectant",
+            "usage": "Use according to local label guidance and resistance advisories.",
+            "purpose": "Improves protection where bacterial spot pressure is high."
+          }
+        ],
+        "immediateActions": [
+          "Avoid working in the crop when leaves are wet.",
+          "Reduce splash from irrigation and rain runoff."
+        ],
+        "organicSupport": [
+          "Remove heavily infected leaves and sanitize tools.",
+          "Use clean seedlings and rotate fields."
+        ]
+      }
+    ]
+  },
+  "potato": {
+    "label": "Potato",
+    "diseases": [
+      {
+        "name": "Late Blight",
+        "symptoms": ["water-soaked lesions", "dark brown patches", "white growth underside", "rapid spread"],
+        "medications": [
+          {
+            "name": "Cymoxanil plus Mancozeb",
+            "type": "Curative plus protectant fungicide",
+            "usage": "Apply quickly after symptom appearance with label-directed coverage.",
+            "purpose": "Suppresses active late blight and protects healthy foliage."
+          },
+          {
+            "name": "Metalaxyl mix",
+            "type": "Systemic fungicide",
+            "usage": "Use in rotation where label and resistance guidance allow.",
+            "purpose": "Targets oomycete infection in late blight."
+          }
+        ],
+        "immediateActions": [
+          "Scout the entire block immediately because spread can be explosive.",
+          "Remove severely infected foliage if feasible.",
+          "Avoid overhead irrigation during active outbreaks."
+        ],
+        "organicSupport": [
+          "Destroy infected haulms after harvest.",
+          "Use certified clean seed tubers."
+        ]
+      },
+      {
+        "name": "Early Blight",
+        "symptoms": ["target-like brown spots", "yellow halo", "older leaves first", "concentric rings"],
+        "medications": [
+          {
+            "name": "Mancozeb",
+            "type": "Protectant fungicide",
+            "usage": "Use at label rate with good coverage.",
+            "purpose": "Protects new growth from early blight spread."
+          },
+          {
+            "name": "Azoxystrobin",
+            "type": "Systemic fungicide",
+            "usage": "Rotate with non-strobilurin chemistry to limit resistance.",
+            "purpose": "Suppresses active early blight lesions."
+          }
+        ],
+        "immediateActions": [
+          "Reduce plant stress and maintain balanced nutrition.",
+          "Improve canopy airflow where possible."
+        ],
+        "organicSupport": [
+          "Remove infected residue after harvest.",
+          "Avoid repeated potato cropping in the same field."
+        ]
+      }
+    ]
+  },
+  "rice": {
+    "label": "Rice",
+    "diseases": [
+      {
+        "name": "Rice Blast",
+        "symptoms": ["spindle-shaped lesions", "grey centers", "brown margins", "leaf tip drying"],
+        "medications": [
+          {
+            "name": "Tricyclazole",
+            "type": "Systemic fungicide",
+            "usage": "Apply according to local label guidance at early symptom stage.",
+            "purpose": "Suppresses blast infection in rice foliage."
+          },
+          {
+            "name": "Isoprothiolane",
+            "type": "Systemic fungicide",
+            "usage": "Use in rotation where locally approved.",
+            "purpose": "Helps manage blast pressure during active disease periods."
+          }
+        ],
+        "immediateActions": [
+          "Avoid excess nitrogen during blast-prone periods.",
+          "Monitor nearby plots because spread can escalate quickly."
+        ],
+        "organicSupport": [
+          "Maintain balanced nutrition and water management.",
+          "Remove volunteer rice hosts around the field."
+        ]
+      },
+      {
+        "name": "Bacterial Leaf Blight",
+        "symptoms": ["leaf edge drying", "yellow to straw lesions", "wavy lesion margins", "tip burn"],
+        "medications": [
+          {
+            "name": "Copper oxychloride",
+            "type": "Bactericide",
+            "usage": "Use as label permits with complete foliage coverage.",
+            "purpose": "Reduces bacterial spread on the leaf surface."
+          },
+          {
+            "name": "Streptocycline plus Copper mix",
+            "type": "Antibacterial spray",
+            "usage": "Use only where locally permitted and labelled for crop use.",
+            "purpose": "Helps check active bacterial infection."
+          }
+        ],
+        "immediateActions": [
+          "Avoid leaf injury from field operations.",
+          "Do not apply excessive nitrogen during active infection."
+        ],
+        "organicSupport": [
+          "Use clean seed and resistant varieties where possible.",
+          "Drain excess standing water if practical during outbreak periods."
+        ]
+      }
+    ]
+  },
+  "cotton": {
+    "label": "Cotton",
+    "diseases": [
+      {
+        "name": "Bacterial Blight",
+        "symptoms": ["angular leaf spots", "water-soaked lesions", "black veins", "defoliation"],
+        "medications": [
+          {
+            "name": "Copper oxychloride",
+            "type": "Bactericide",
+            "usage": "Apply with full leaf coverage following label guidance.",
+            "purpose": "Suppresses bacterial spread on cotton foliage."
+          }
+        ],
+        "immediateActions": [
+          "Avoid moving through wet crop canopies.",
+          "Reduce splash and mechanical injury."
+        ],
+        "organicSupport": [
+          "Use clean seed and remove infected residue after harvest.",
+          "Avoid saving seed from infected fields."
+        ]
+      },
+      {
+        "name": "Alternaria Leaf Spot",
+        "symptoms": ["brown circular lesions", "concentric rings", "yellow halo", "leaf drying"],
+        "medications": [
+          {
+            "name": "Mancozeb",
+            "type": "Protectant fungicide",
+            "usage": "Apply according to label with complete canopy coverage.",
+            "purpose": "Protects cotton leaves from further fungal spread."
+          },
+          {
+            "name": "Azoxystrobin",
+            "type": "Systemic fungicide",
+            "usage": "Rotate chemistry to avoid resistance buildup.",
+            "purpose": "Helps suppress active alternaria infection."
+          }
+        ],
+        "immediateActions": [
+          "Reduce crop stress where possible.",
+          "Maintain balanced potassium nutrition."
+        ],
+        "organicSupport": [
+          "Remove heavily infected leaves where practical.",
+          "Improve field airflow and residue management."
+        ]
+      }
+    ]
+  },
+  "maize": {
+    "label": "Maize",
+    "diseases": [
+      {
+        "name": "Northern Leaf Blight",
+        "symptoms": ["long cigar-shaped lesions", "grey-green leaf spots", "elongated necrosis"],
+        "medications": [
+          {
+            "name": "Propiconazole",
+            "type": "Systemic fungicide",
+            "usage": "Apply following local label timing for leaf blight management.",
+            "purpose": "Suppresses expanding leaf blight lesions."
+          },
+          {
+            "name": "Azoxystrobin plus Difenoconazole",
+            "type": "Systemic fungicide mix",
+            "usage": "Use where labeled and rotate modes of action.",
+            "purpose": "Protects new foliage and curbs disease spread."
+          }
+        ],
+        "immediateActions": [
+          "Scout surrounding plants for lesion spread.",
+          "Retain balanced nutrient management to reduce stress."
+        ],
+        "organicSupport": [
+          "Rotate crops and manage maize residue after harvest.",
+          "Use tolerant hybrids where possible."
+        ]
+      },
+      {
+        "name": "Common Rust",
+        "symptoms": ["small rust pustules", "orange-brown powdery spots", "scattered leaf lesions"],
+        "medications": [
+          {
+            "name": "Propiconazole",
+            "type": "Systemic fungicide",
+            "usage": "Apply early when pustules are spreading upward in the canopy.",
+            "purpose": "Suppresses rust development in maize."
+          }
+        ],
+        "immediateActions": [
+          "Monitor upper canopy spread during humid weather.",
+          "Protect young leaves if disease is moving rapidly."
+        ],
+        "organicSupport": [
+          "Reduce volunteer maize hosts around the field.",
+          "Use resistant hybrids in rust-prone zones."
+        ]
+      }
+    ]
+  },
+  "wheat": {
+    "label": "Wheat",
+    "diseases": [
+      {
+        "name": "Leaf Rust",
+        "symptoms": ["orange pustules", "scattered rust spots", "powdery leaf eruptions"],
+        "medications": [
+          {
+            "name": "Propiconazole",
+            "type": "Systemic fungicide",
+            "usage": "Apply according to label if rust is actively spreading.",
+            "purpose": "Suppresses rust sporulation and protects green leaf area."
+          },
+          {
+            "name": "Tebuconazole",
+            "type": "Systemic fungicide",
+            "usage": "Use with full leaf coverage and resistance-aware rotation.",
+            "purpose": "Helps manage active leaf rust infection."
+          }
+        ],
+        "immediateActions": [
+          "Monitor flag leaf infection closely.",
+          "Act early if rust is moving into upper canopy leaves."
+        ],
+        "organicSupport": [
+          "Use resistant cultivars in future cycles.",
+          "Destroy volunteer wheat hosts after harvest."
+        ]
+      },
+      {
+        "name": "Powdery Mildew",
+        "symptoms": ["white powdery growth", "cottony leaf coating", "leaf yellowing"],
+        "medications": [
+          {
+            "name": "Wettable Sulphur",
+            "type": "Protectant fungicide",
+            "usage": "Use where labeled and avoid high-heat application periods.",
+            "purpose": "Suppresses powdery mildew on the leaf surface."
+          },
+          {
+            "name": "Tebuconazole",
+            "type": "Systemic fungicide",
+            "usage": "Apply according to label if mildew pressure is rising.",
+            "purpose": "Helps control established mildew infection."
+          }
+        ],
+        "immediateActions": [
+          "Avoid overly dense crop stands where possible.",
+          "Monitor humidity-driven spread in cool weather."
+        ],
+        "organicSupport": [
+          "Improve airflow through balanced plant density.",
+          "Avoid excess nitrogen where mildew is chronic."
+        ]
+      }
+    ]
+  },
+  "soybean": {
+    "label": "Soybean",
+    "diseases": [
+      {
+        "name": "Soybean Rust",
+        "symptoms": ["tiny brown pustules", "yellow specks", "leaf underside lesions", "rapid defoliation"],
+        "medications": [
+          {
+            "name": "Tebuconazole plus Trifloxystrobin",
+            "type": "Systemic fungicide mix",
+            "usage": "Apply early when rust is first confirmed, following label guidance.",
+            "purpose": "Suppresses rust spread and protects new foliage."
+          },
+          {
+            "name": "Propiconazole",
+            "type": "Systemic fungicide",
+            "usage": "Rotate chemistry based on resistance guidance.",
+            "purpose": "Helps manage active soybean rust infection."
+          }
+        ],
+        "immediateActions": [
+          "Scout surrounding fields quickly because soybean rust spreads fast.",
+          "Protect upper canopy if disease is progressing."
+        ],
+        "organicSupport": [
+          "Remove volunteer hosts where feasible.",
+          "Choose tolerant varieties in high-risk regions."
+        ]
+      },
+      {
+        "name": "Frogeye Leaf Spot",
+        "symptoms": ["circular spots", "grey centers", "reddish brown margins", "scattered lesions"],
+        "medications": [
+          {
+            "name": "Thiophanate-methyl",
+            "type": "Systemic fungicide",
+            "usage": "Use only where locally effective and label-approved.",
+            "purpose": "Helps suppress frogeye leaf spot lesions."
+          },
+          {
+            "name": "Difenoconazole mix",
+            "type": "Systemic fungicide",
+            "usage": "Apply with resistance management rotation.",
+            "purpose": "Protects soybean foliage from ongoing spread."
+          }
+        ],
+        "immediateActions": [
+          "Monitor spread to upper canopy leaves.",
+          "Avoid relying on a single fungicide mode of action."
+        ],
+        "organicSupport": [
+          "Rotate crops and manage infected residue.",
+          "Use clean seed in the next planting cycle."
+        ]
+      }
+    ]
+  },
+  "groundnut": {
+    "label": "Groundnut",
+    "diseases": [
+      {
+        "name": "Tikka Leaf Spot",
+        "symptoms": ["dark brown spots", "small circular lesions", "yellowing leaves", "defoliation"],
+        "medications": [
+          {
+            "name": "Chlorothalonil",
+            "type": "Protectant fungicide",
+            "usage": "Apply with good canopy coverage at label intervals.",
+            "purpose": "Protects foliage from further tikka leaf spot spread."
+          },
+          {
+            "name": "Hexaconazole",
+            "type": "Systemic fungicide",
+            "usage": "Use in rotation for active fungal pressure where labeled.",
+            "purpose": "Helps suppress existing lesions."
+          }
+        ],
+        "immediateActions": [
+          "Scout the lower canopy and remove heavily infected leaves where practical.",
+          "Avoid prolonged leaf wetness."
+        ],
+        "organicSupport": [
+          "Rotate away from groundnut and manage residue after harvest.",
+          "Use wider spacing in fields with repeated disease pressure."
+        ]
+      },
+      {
+        "name": "Groundnut Rust",
+        "symptoms": ["rust pustules", "orange powdery spots", "leaf yellowing", "defoliation"],
+        "medications": [
+          {
+            "name": "Propiconazole",
+            "type": "Systemic fungicide",
+            "usage": "Apply early when rust pustules are first spreading.",
+            "purpose": "Suppresses rust development in groundnut."
+          }
+        ],
+        "immediateActions": [
+          "Monitor canopy spread during humid weather.",
+          "Protect upper foliage before heavy defoliation starts."
+        ],
+        "organicSupport": [
+          "Reduce volunteer hosts and infected residue.",
+          "Use tolerant varieties if rust is common in the area."
+        ]
+      }
+    ]
+  }
+}

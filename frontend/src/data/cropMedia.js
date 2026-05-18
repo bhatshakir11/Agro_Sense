@@ -4,7 +4,7 @@ function svgToDataUri(svg) {
 
 function buildScene({ background, foreground, accent, title, body }) {
   return svgToDataUri(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560">
       <defs>
         <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stop-color="${background[0]}" />
@@ -15,15 +15,16 @@ function buildScene({ background, foreground, accent, title, body }) {
           <stop offset="100%" stop-color="${foreground[1]}" />
         </linearGradient>
       </defs>
-      <rect width="1200" height="720" fill="url(#bg)" />
-      <circle cx="180" cy="130" r="90" fill="${accent}" opacity="0.28" />
-      <circle cx="1030" cy="120" r="120" fill="#ffffff" opacity="0.12" />
-      <rect y="430" width="1200" height="290" fill="url(#ground)" />
-      <path d="M0 455 C180 400 300 490 470 445 C650 400 780 490 935 445 C1035 415 1110 430 1200 455 L1200 720 L0 720 Z" fill="${foreground[2]}" opacity="0.95" />
+      <rect width="1200" height="560" fill="url(#bg)" />
+      <circle cx="170" cy="96" r="92" fill="${accent}" opacity="0.24" />
+      <circle cx="1030" cy="88" r="110" fill="#ffffff" opacity="0.1" />
+      <rect y="340" width="1200" height="220" fill="url(#ground)" />
+      <path d="M0 360 C180 320 300 392 470 350 C650 315 780 398 935 354 C1035 326 1110 338 1200 360 L1200 560 L0 560 Z" fill="${foreground[2]}" opacity="0.95" />
       ${body}
-      <rect x="54" y="54" width="228" height="54" rx="27" fill="rgba(255,255,255,0.18)" />
-      <text x="168" y="89" text-anchor="middle" fill="#ffffff" font-size="26" font-family="Arial, sans-serif" letter-spacing="4">CROP VISUAL</text>
-      <text x="88" y="646" fill="#ffffff" font-size="76" font-weight="700" font-family="Arial, sans-serif">${title}</text>
+      <rect x="48" y="36" width="220" height="46" rx="23" fill="rgba(255,255,255,0.2)" />
+      <text x="158" y="67" text-anchor="middle" fill="#ffffff" font-size="24" font-family="Arial, sans-serif" letter-spacing="4">CROP VISUAL</text>
+      <rect x="54" y="454" width="300" height="70" rx="24" fill="rgba(16,42,26,0.28)" />
+      <text x="82" y="502" fill="#ffffff" font-size="64" font-weight="700" font-family="Arial, sans-serif">${title}</text>
     </svg>
   `);
 }

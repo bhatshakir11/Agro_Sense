@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../common/Navbar";
 import Footer from "../common/Footer";
+import FarmerAssistantChat from "../common/FarmerAssistantChat";
 import { Box, Container } from "@mui/material";
 import { Outlet, useLocation } from "react-router-dom";
 
@@ -18,6 +19,7 @@ const MainLayout = ({ children }) => {
         </Container>
       </Box>
       <Footer />
+      <FarmerAssistantChat />
     </Box>
   );
 };

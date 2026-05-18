@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#388e3c" />
     <title>AI-Based Sustainable Agriculture Decision Support System</title>
+    <script>
+      (function () {
+        var resizeObserverLoopMessages = [
+          "ResizeObserver loop completed with undelivered notifications.",
+          "ResizeObserver loop limit exceeded",
+        ];
+
+        window.addEventListener(
+          "error",
+          function (event) {
+            if (resizeObserverLoopMessages.indexOf(event.message) !== -1) {
+              event.preventDefault();
+              event.stopImmediatePropagation();
+            }
+          },
+          true
+        );
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
