@@ -69,7 +69,7 @@ const HeroSection = () => {
                 mb: 1.5,
               }}
             >
-              Explore your farm decisions through a live 3D command space.
+              Explore your farm decisions through a live command space.
             </Typography>
 
             <Typography
